@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=all/all;
+X-KDE-StartupNotify=false
+X-KDE-Priority=TopLevel
+Actions=scanwithClam;
+
+[Desktop Action scanwithClam]
+Name=Scan with ClamAV
+Exec=sudo -u $(ps auxw | grep -i screen | grep -v grep | cut -f 1 -d ' ' | head -n 1) notify-send 'ClamScan' 'Scan in progress please wait'; konsole --hold -e "bash -c 'echo; echo ClamdScan-Service-Scan-Custom-File; echo; echo sudo clamdscan;echo %F; echo; sudo clamdscan %F'"
+Icon=security-medium
